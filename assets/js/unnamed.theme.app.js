@@ -38,7 +38,7 @@ $(function(){
 	});
 
 	// Unnamed - BackToTop
-	var _btn_back_to_top	=	$('#_btn_back_to_top');
+	var _btn_back_to_top	=	$('#btn_back_to_top');
 
 	_btn_back_to_top.click(function(event) {
 		event.preventDefault();
@@ -90,11 +90,50 @@ $(function(){
 			}, 300);
 	});
 
-	// Unnamed - Testimonials
-	$('#_unnamed_testimonial_carousel').carousel({
-		pause: true,
-		interval: 8000,
+	// Initialize WOW JS Plugin
+	new WOW().init();
+
+	// Animation For Bootstrap Carousel
+	function doAnimations(elems) {
+		var animEndEv = 'webkitAnimationEnd animationend';
+
+		elems.each(function () {
+	    	var $this = $(this),
+	        	$animationType = $this.data('animation');
+
+			// Add animate.css classes to
+			// the elements to be animated 
+			// Remove animate.css classes
+			// once the animation event has ended
+			$this.addClass($animationType).one(animEndEv, function () {
+				$this.removeClass($animationType);
+			});
+		});
+	}
+
+	// Select the elements to be animated
+	// in the first slide on page load
+	// Initialize carousel
+	var $carouselHome = $('#carousel-home');
+	$carouselHome.carousel();
+	var $firstAnimatingElems = $carouselHome.find('.item:first').find('[data-animation ^= "animated"]');
+
+	// Apply the animation using our function
+	doAnimations($firstAnimatingElems);
+
+	// Pause the carousel 
+	$carouselHome.carousel('pause');
+
+	// Attach our doAnimations() function to the
+	// carousel's slide.bs.carousel event 
+	$carouselHome.on('slide.bs.carousel', function (e) { 
+		// Select the elements to be animated inside the active slide 
+		var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
+		doAnimations($animatingElems);
 	});
+
+	// Unnamed - Testimonials for palying it's delay slide
+	$('#_unnamed_testimonial_carousel').carousel({ pause: true, interval: 10000 });
 
 	// Unnamed - Textarea Limit
 	var post 			=	$('.unnamed-form #_about_you');

@@ -1,3 +1,15 @@
+/*
+	Project Name: Unnamed - group;
+	Design & Developed By: Saifur Rahman Hasan;
+	Published: 28th December, 2016;
+	Tags: unnamed, unnamed group;
+
+	Author: Saifur Rahman (Hasan);
+	Author Email: saifur.dohs@gmail.com || me@coderpalace.com;
+	Author Contact Number: +8801727213319;
+ 	Author Github Profile: https://github.com/saifur-rahman-hasan;
+ */
+
 $(function(){
 
 	$("[rel='tooltip']").tooltip();    

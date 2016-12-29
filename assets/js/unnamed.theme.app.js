@@ -20,7 +20,7 @@ $(function(){
 		navText: ["<i class='fa fa-lg fa-angle-left'></i>","<i class='fa fa-lg fa-angle-right'></i>"],
 		responsive:{
 			0:{ items:1 },
-			600:{ items:3 },
+			600:{ items:2 },
 			1000:{ items:3 }
 		}
 	});
@@ -120,7 +120,7 @@ $(function(){
 		}
 	});
 
-	$( "#_unnamed_join_form" ).validate({
+	$( "#_unnamed_join_form.unnamed-form" ).validate({
 		rules: {
 			full_name: { required: true, minlength: 2, maxlength: 30 },
 			email: { required: true, email: true },

@@ -12,7 +12,7 @@
 
 $(function(){
 
-	$("[rel='tooltip']").tooltip();    
+	$('[data-toggle="tooltip"]').tooltip();    
  
 	$('.unnamed-thumbnail-overlay').hover(
 		function(){
@@ -29,7 +29,7 @@ $(function(){
 		margin:20,
 		nav: true,
 		navContainer: '#unnamed-portfolio-carousel-nav',
-		navText: ["<i class='fa fa-lg fa-angle-left'></i>","<i class='fa fa-lg fa-angle-right'></i>"],
+		navText: ['<i class="fa fa-lg fa-angle-left"></i>','<i class="fa fa-lg fa-angle-right"></i>'],
 		responsive:{
 			0:{ items:1 },
 			600:{ items:2 },
